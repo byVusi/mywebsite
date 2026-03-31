@@ -1,0 +1,1609 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vusi Mathonsi | Educator & Mentor</title>
+
+		<!-- Google Fonts: Lora (Serif) & Montserrat (Sans-Serif) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet"
+		/>
+
+		<style>
+			/* ========================================
+			     DESIGN TOKENS & VARIABLES
+			     ========================================
+			     */
+			:root {
+				/* Colors: Authority (Slate/Navy) & Warmth (Amber/Gold) */
+				--primary-900: #0f172a;
+				--primary-800: #1e293b;
+				--primary-100: #f1f5f9;
+
+				--accent-main: #d97706; /* Warm Amber */
+				--accent-light: #fbbf24;
+				--accent-glow: rgba(251, 191, 36, 0.3);
+
+				--bg-color: #fafaf9; /* Warm off-white */
+				--surface: #ffffff;
+
+				--text-main: #334155;
+				--text-muted: #64748b;
+				--border-color: #e2e8f0;
+
+				/* Spacing Scale (4-point system) */
+				--space-0: 0;
+				--space-1: 0.25rem; /* 4px */
+				--space-2: 0.5rem; /* 8px */
+				--space-3: 0.75rem; /* 12px */
+				--space-4: 1rem; /* 16px */
+				--space-5: 1.25rem; /* 20px */
+				--space-6: 1.5rem; /* 24px */
+				--space-7: 2rem; /* 32px */
+				--space-8: 2.5rem; /* 40px */
+				--space-10: 4rem; /* 64px */
+				--space-12: 6rem; /* 96px */
+
+				/* Content Widths */
+				--content-lg: 960px;
+				--content-xl: 1140px;
+				--content-xxl: 1320px;
+			}
+
+			/* ========================================
+			     RESET & BASE TYPOGRAPHY
+			     ========================================
+			     */
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			html {
+				font-family:
+					"Montserrat",
+					system-ui,
+					-apple-system,
+					sans-serif;
+				font-size: 16px;
+				line-height: 1.6;
+				scroll-behavior: smooth;
+				background-color: var(--bg-color);
+				color: var(--text-main);
+				overflow-x: hidden;
+			}
+
+			body {
+				-webkit-font-smoothing: antialiased;
+				text-rendering: optimizeLegibility;
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh;
+			}
+
+			h1,
+			h2,
+			h3 {
+				font-family: "Lora", Georgia, serif;
+				color: var(--primary-900);
+				line-height: 1.2;
+				letter-spacing: -0.02em;
+			}
+
+			h1 {
+				font-size: clamp(2.5rem, 5vw, 4rem);
+				font-weight: 700;
+				margin-bottom: var(--space-4);
+			}
+			h2 {
+				font-size: clamp(2rem, 3vw, 2.5rem);
+				font-weight: 600;
+				margin-bottom: var(--space-6);
+			}
+			h3 {
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin-bottom: var(--space-2);
+			}
+			h4 {
+				font-family: "Montserrat", sans-serif;
+				font-size: 1.25rem;
+				font-weight: 600;
+				color: var(--primary-900);
+				margin-bottom: var(--space-2);
+			}
+
+			p {
+				margin-bottom: var(--space-4);
+				max-width: 70ch;
+			}
+			p:last-child {
+				margin-bottom: 0;
+			}
+
+			a {
+				color: var(--accent-main);
+				text-decoration: none;
+				transition: all 0.2s ease;
+				font-weight: 500;
+			}
+			a:hover {
+				color: var(--primary-900);
+			}
+
+			img {
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+				display: block;
+				border-radius: 8px;
+			}
+
+			blockquote {
+				font-family: "Lora", serif;
+				font-size: 1.25rem;
+				font-style: italic;
+				color: var(--primary-800);
+				border-left: 4px solid var(--accent-main);
+				padding-left: var(--space-5);
+				margin: var(--space-6) 0;
+				background: linear-gradient(
+					90deg,
+					rgba(217, 119, 6, 0.05) 0%,
+					transparent 100%
+				);
+				padding-top: var(--space-2);
+				padding-bottom: var(--space-2);
+				border-radius: 0 8px 8px 0;
+			}
+
+			/* ========================================
+			     LAYOUT & CONTAINERS
+			     ========================================
+			     */
+			.container {
+				width: 100%;
+				margin: 0 auto;
+				padding: 0 var(--space-5);
+				max-width: var(--content-xl);
+			}
+
+			section {
+				padding: var(--space-12) 0;
+			}
+
+			.grid-2 {
+				display: grid;
+				gap: var(--space-10);
+				grid-template-columns: 1fr;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: var(--space-4);
+				margin-top: var(--space-8);
+			}
+			@media (min-width: 768px) {
+				.grid-2 {
+					grid-template-columns: 1fr 1fr;
+					align-items: center;
+				}
+			}
+			/* ========================================
+			     NAVIGATION
+			     ========================================
+			     */
+			.navbar {
+				background-color: rgba(255, 255, 255, 0.95);
+				backdrop-filter: blur(10px);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				border-bottom: 1px solid var(--border-color);
+				padding: var(--space-4) 0;
+			}
+
+			.navbar .container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.nav-brand {
+				font-family: "Lora", serif;
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: var(--primary-900);
+			}
+
+			.nav-menu {
+				display: flex;
+				gap: var(--space-6);
+				list-style: none;
+				align-items: center;
+			}
+
+			.nav-link {
+				color: var(--text-main);
+				font-size: 0.95rem;
+				font-weight: 600;
+				cursor: pointer;
+				padding: var(--space-2) 0;
+				position: relative;
+			}
+
+			.nav-link::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 2px;
+				background-color: var(--accent-main);
+				transition: width 0.3s ease;
+			}
+
+			.nav-link:hover::after,
+			.nav-link.active::after {
+				width: 100%;
+			}
+			.nav-link.active {
+				color: var(--primary-900);
+			}
+
+			.hamburger {
+				display: none;
+				cursor: pointer;
+				flex-direction: column;
+				gap: 5px;
+			}
+			.bar {
+				width: 25px;
+				height: 3px;
+				background-color: var(--primary-900);
+				transition: 0.3s;
+				border-radius: 2px;
+			}
+
+			@media (max-width: 768px) {
+				.hamburger {
+					display: flex;
+				}
+				.nav-menu {
+					position: absolute;
+					top: 100%;
+					left: 0;
+					width: 100%;
+					background-color: var(--surface);
+					flex-direction: column;
+					padding: var(--space-6) var(--space-5);
+					border-bottom: 1px solid var(--border-color);
+					box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+					clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+					transition: clip-path 0.4s ease-in-out;
+					gap: var(--space-4);
+					align-items: flex-start;
+				}
+				.nav-menu.active {
+					clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+				}
+				.hamburger.active .bar:nth-child(1) {
+					transform: translateY(8px) rotate(45deg);
+				}
+				.hamburger.active .bar:nth-child(2) {
+					opacity: 0;
+				}
+				.hamburger.active .bar:nth-child(3) {
+					transform: translateY(-8px) rotate(-45deg);
+				}
+			}
+
+			/* ========================================
+			     SPA PAGE LOGIC
+			     ========================================
+			     */
+			.page-section {
+				display: none;
+				animation: fadeIn 0.5s ease;
+			}
+			.page-section.active {
+				display: block;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(10px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* ========================================
+			     COMPONENTS & MODULES
+			     ========================================
+			     */
+			/* Buttons */
+			.btn {
+				display: inline-block;
+				padding: 0.8rem 1.75rem;
+				border-radius: 50px;
+				font-weight: 600;
+				text-align: center;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				border: 2px solid transparent;
+			}
+			.btn-primary {
+				background-color: var(--accent-main);
+				color: white;
+				box-shadow: 0 4px 14px 0 var(--accent-glow);
+			}
+			.btn-primary:hover {
+				background-color: #b46305;
+				color: white;
+				transform: translateY(-2px);
+			}
+			.btn-outline {
+				background-color: transparent;
+				color: var(--primary-900);
+				border-color: var(--primary-900);
+			}
+			.btn-outline:hover {
+				background-color: var(--primary-900);
+				color: white;
+			}
+
+			/* Cards */
+			.card-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: var(--space-6);
+				margin-top: var(--space-8);
+			}
+			.card {
+				background-color: var(--surface);
+				padding: var(--space-7);
+				border-radius: 12px;
+				border: 1px solid var(--border-color);
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+				transition:
+					transform 0.3s ease,
+					box-shadow 0.3s ease;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+			.card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+				border-color: var(--accent-light);
+			}
+			.card svg {
+				width: 40px;
+				height: 40px;
+				stroke-width: 1.5;
+				stroke: var(--accent-main);
+				margin-bottom: var(--space-4);
+			}
+			.card .card-text {
+				color: var(--text-muted);
+				flex-grow: 1;
+			}
+
+			@media (min-width: 980px) {
+				[id="philosophy"] .card-grid {
+					grid-template-columns: repeat(2, minmax(280px, 1fr));
+				}
+			}
+
+			/* Pills */
+			.pill-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-bottom: 1rem;
+			}
+			.pill {
+				background-color: var(--primary-100);
+				color: var(--primary-900);
+				font-size: 0.75rem;
+				font-weight: 700;
+				padding: 4px 12px;
+				border-radius: 50px;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+
+			/* ========================================
+			     SPECIFIC SECTIONS
+			     ========================================
+			     */
+			/* Headers */
+			.page-header {
+				text-align: center;
+				padding: var(--space-12) 0 var(--space-8);
+				background: linear-gradient(
+					180deg,
+					rgba(241, 245, 249, 0.5) 0%,
+					var(--bg-color) 100%
+				);
+			}
+			.page-header p {
+				margin: 0 auto;
+				font-size: 1.125rem;
+				color: var(--text-muted);
+			}
+
+			/* Hero Home */
+			.hero {
+				padding: var(--space-12) 0;
+			}
+			.hero-img-wrapper {
+				position: relative;
+			}
+			.hero-img-wrapper::before {
+				content: "";
+				position: absolute;
+				inset: -15px;
+				background: var(--accent-glow);
+				border-radius: 12px;
+				z-index: -1;
+				transform: rotate(-2deg);
+			}
+
+			/* Timeline (Experience) */
+			.timeline {
+				position: relative;
+				padding: var(--space-8) 0;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			.timeline::after {
+				content: "";
+				position: absolute;
+				width: 2px;
+				background-color: var(--border-color);
+				top: 0;
+				bottom: 0;
+				left: 50%;
+				margin-left: -1px;
+			}
+			.timeline-item {
+				padding: 10px 40px;
+				position: relative;
+				background-color: inherit;
+				width: 50%;
+			}
+			.timeline-item.left {
+				left: 0;
+			}
+			.timeline-item.right {
+				left: 50%;
+			}
+
+			.timeline-item::after {
+				content: "";
+				position: absolute;
+				width: 16px;
+				height: 16px;
+				right: -8px;
+				top: 28px;
+				background-color: var(--surface);
+				border: 3px solid var(--border-color);
+				border-radius: 50%;
+				z-index: 1;
+				transition: all 0.3s ease;
+			}
+			.timeline-item.right::after {
+				left: -8px;
+			}
+
+			.timeline-item.active::after {
+				background-color: var(--accent-main);
+				border-color: var(--accent-main);
+				box-shadow: 0 0 0 4px var(--accent-glow);
+				transform: scale(1.2);
+			}
+
+			.timeline-content {
+				padding: var(--space-5);
+				background-color: var(--surface);
+				border-radius: 8px;
+				border: 1px solid var(--border-color);
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+				transition: all 0.3s ease;
+				position: relative;
+			}
+			.timeline-item.active .timeline-content {
+				border-color: var(--accent-main);
+				transform: translateY(-2px);
+				box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+			}
+
+			.timeline-date {
+				display: inline-block;
+				padding: 4px 12px;
+				background-color: var(--primary-100);
+				color: var(--primary-900);
+				border-radius: 50px;
+				font-size: 0.75rem;
+				font-weight: 700;
+				margin-bottom: var(--space-3);
+			}
+
+			.box-container {
+				display: flex;
+				gap: var(--space-8);
+				flex-direction: column;
+				margin-bottom: var(--space-10);
+			}
+
+			.box-container h3 {
+				margin-bottom: var(--space-5);
+			}
+
+			@media (max-width: 768px) {
+				.timeline::after {
+					left: 31px;
+				}
+				.timeline-item {
+					width: 100%;
+					padding-left: 70px;
+					padding-right: 0;
+					left: 0 !important;
+				}
+				.timeline-item::after {
+					left: 23px !important;
+				}
+				.box-container {
+					display: block;
+				}
+				.box-container div:nth-of-type(2) {
+					display: none;
+				}
+			}
+
+			@media (min-width: 980px) {
+				.box-container {
+					flex-direction: row;
+				}
+
+				.box-container:nth-of-type(2),
+				.box-container:nth-of-type(4) {
+					flex-direction: row-reverse;
+				}
+
+				.box-container > div {
+					flex: 1;
+				}
+			}
+
+			/* Footer */
+			footer {
+				background-color: var(--primary-900);
+				color: white;
+				padding: var(--space-10) 0 var(--space-4);
+				margin-top: auto;
+			}
+			footer h4 {
+				color: white;
+				margin-bottom: var(--space-4);
+			}
+			footer p,
+			footer small {
+				color: #94a3b8;
+			}
+			footer a {
+				color: #cbd5e1;
+			}
+			footer a:hover {
+				color: var(--accent-light);
+			}
+			.footer-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: var(--space-8);
+				margin-bottom: var(--space-8);
+				text-align: center;
+			}
+			.footer-bottom {
+				text-align: center;
+				padding-top: var(--space-6);
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- NAVIGATION -->
+		<nav class="navbar">
+			<div class="container">
+				<a href="#" class="nav-brand" onclick="navigateTo('home')"
+					>Vusi Mathonsi</a
+				>
+				<ul class="nav-menu" id="navMenu">
+					<li>
+						<a class="nav-link active" data-target="home">Home</a>
+					</li>
+					<li>
+						<a class="nav-link" data-target="philosophy"
+							>Philosophy</a
+						>
+					</li>
+					<li>
+						<a class="nav-link" data-target="experience"
+							>Experience</a
+						>
+					</li>
+					<li>
+						<a class="nav-link" data-target="resources"
+							>Resources</a
+						>
+					</li>
+				</ul>
+				<div class="hamburger" id="hamburger">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</div>
+			</div>
+		</nav>
+
+		<!-- MAIN CONTENT AREA (SPA PAGES) -->
+		<main>
+			<!-- ==================== HOME PAGE ==================== -->
+			<div id="home" class="page-section active">
+				<section class="hero container">
+					<div
+						class="grid-2"
+						style="padding-left: 1rem; padding-right: 1rem"
+					>
+						<div>
+							<h1>Building Excellence. Rooted in Character.</h1>
+							<p
+								style="
+									font-size: 1.125rem;
+									color: var(--text-muted);
+									margin-bottom: var(--space-6);
+								"
+							>
+								I guide students through the logic of
+								Mathematics and the complexities of personal
+								growth.
+							</p>
+							<a href="#get-in-touch" class="btn btn-primary"
+								>Get in Touch</a
+							>
+						</div>
+						<div class="hero-img-wrapper">
+							<img
+								src="assets/images/placeholder-image.png"
+								alt="Vusi Mathonsi Mentoring"
+							/>
+						</div>
+					</div>
+				</section>
+
+				<section class="container">
+					<div
+						class="grid-2"
+						style="
+							align-items: start;
+							margin-bottom: var(--space-12);
+						"
+					>
+						<div>
+							<figure>
+								<img
+									src="assets/images/placeholder-image.png"
+									alt="Vusi Mathonsi Portrait"
+									style="border-radius: 12px"
+								/>
+								<figcaption
+									style="
+										text-align: center;
+										margin-top: 1rem;
+										color: var(--text-muted);
+									"
+								>
+									Maths Teacher | Housemaster | Mentor
+								</figcaption>
+							</figure>
+						</div>
+						<div>
+							<h2>The Whole Student</h2>
+							<p>
+								Real learning doesn't stop at the classroom
+								door. Whether I'm on the sports field or in the
+								boarding house, I'm building a community where
+								students feel safe enough to take risks and
+								grounded enough to own their choices.
+							</p>
+							<blockquote>
+								High standards require high support.
+							</blockquote>
+						</div>
+					</div>
+				</section>
+
+				<section
+					class="container"
+					style="margin-bottom: var(--space-12)"
+				>
+					<div>
+						<h2>My Approach</h2>
+						<div class="card-grid">
+							<div class="card">
+								<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
+									/>
+									<path d="M12 15L12 18" />
+								</svg>
+								<h4 class="card-title">Belonging First</h4>
+								<p class="card-text">
+									Every student should feel known and valued.
+									I foster a culture where respect isn't just
+									a rule - it's a habit - because how we treat
+									our peers is as important as what we learn.
+								</p>
+							</div>
+							<div class="card">
+								<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M3.46447 20.5355C4.92893 22 7.28595 22 12 22C16.714 22 19.0711 22 20.5355 20.5355C22 19.0711 22 16.714 22 12C22 7.28595 22 4.92893 20.5355 3.46447C19.0711 2 16.714 2 12 2C7.28595 2 4.92893 2 3.46447 3.46447C2 4.92893 2 7.28595 2 12C2 16.714 2 19.0711 3.46447 20.5355Z"
+									/>
+									<path
+										d="M18 8.49998H14M18 14.5H14M18 17.5H14M10 8.49999H8M8 8.49999L6 8.49999M8 8.49999L8 6.49998M8 8.49999L8 10.5M9.5 14.5L8.00001 16M8.00001 16L6.50001 17.5M8.00001 16L6.5 14.5M8.00001 16L9.49999 17.5"
+									/>
+								</svg>
+								<h4 class="card-title">Clear Logic</h4>
+								<p class="card-text">
+									Maths shouldn't be a mystery. I strip away
+									the complexity to reveal the logic
+									underneath, helping students solve the
+									problem in front of them while building the
+									thinking skills they'll use for life.
+								</p>
+							</div>
+							<div class="card">
+								<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<circle cx="12" cy="12" r="10" />
+									<path
+										d="M13.024 14.5601C10.7142 15.484 9.5593 15.946 8.89964 15.4977C8.74324 15.3914 8.60834 15.2565 8.50206 15.1001C8.0538 14.4405 8.51575 13.2856 9.43967 10.9758C9.63673 10.4831 9.73527 10.2368 9.90474 10.0435C9.94792 9.99429 9.99429 9.94792 10.0435 9.90474C10.2368 9.73527 10.4831 9.63673 10.9758 9.43966C13.2856 8.51575 14.4405 8.0538 15.1001 8.50206C15.2565 8.60834 15.3914 8.74324 15.4977 8.89964C15.946 9.5593 15.484 10.7142 14.5601 13.024C14.363 13.5166 14.2645 13.763 14.095 13.9562C14.0518 14.0055 14.0055 14.0518 13.9562 14.095C13.763 14.2645 13.5166 14.363 13.024 14.5601Z"
+									/>
+								</svg>
+								<h4 class="card-title">
+									Whole Person & Growth
+								</h4>
+								<p class="card-text">
+									Growth happens everywhere - from the sports
+									field to the boarding house. I challenge
+									students to look past their current grade
+									and envision the person they want to become.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="container">
+					<div
+						class="grid"
+						style="
+							align-items: start;
+							margin-bottom: var(--space-12);
+						"
+					>
+						<img src="assets/images/placeholder-image.png" alt="" />
+						<img src="assets/images/placeholder-image.png" alt="" />
+						<img src="assets/images/placeholder-image.png" alt="" />
+					</div>
+				</section>
+
+				<section
+					class="container"
+					style="
+						background-color: var(--primary-100);
+						border-radius: 24px;
+						padding: var(--space-8);
+						margin-top: var(--space-12);
+						margin-bottom: var(--space-12);
+					"
+				>
+					<div
+						id="get-in-touch"
+						style="
+							text-align: center;
+							max-width: 600px;
+							margin: 0 auto;
+						"
+					>
+						<h2>Let's Connect</h2>
+						<p>
+							The best work happens when we do it together. If you
+							want to swap teaching strategies, talk about
+							mentorship, or just chat about how we help students
+							thrive - my door is always open.
+						</p>
+						<a
+							href="mailto:contact@example.com"
+							class="btn btn-primary"
+							style="margin-top: var(--space-4)"
+							>Email Vusi</a
+						>
+					</div>
+				</section>
+			</div>
+
+			<!-- ==================== PHILOSOPHY PAGE ==================== -->
+			<div id="philosophy" class="page-section">
+				<header
+					class="page-header container"
+					style="margin-bottom: var(--space-12)"
+				>
+					<h1>My Philosophy</h1>
+					<p>
+						Results start with connection. When a student feels
+						seen, the effort follows. They might start by working
+						hard because they trust you, but they finish by working
+						hard because they finally believe in themselves.
+					</p>
+				</header>
+
+				<section
+					class="container"
+					style="margin-bottom: var(--space-12)"
+				>
+					<h2 style="text-align: center">My 4 Pillars of Practice</h2>
+					<div class="card-grid">
+						<div class="card">
+							<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M15.6807 14.5869C19.1708 14.5869 22 11.7692 22 8.29344C22 4.81767 19.1708 2 15.6807 2C12.1907 2 9.3615 4.81767 9.3615 8.29344C9.3615 9.90338 10.0963 11.0743 10.0963 11.0743L2.45441 18.6849C2.1115 19.0264 1.63143 19.9143 2.45441 20.7339L3.33616 21.6121C3.67905 21.9048 4.54119 22.3146 5.2466 21.6121L6.27531 20.5876C7.30403 21.6121 8.4797 21.0267 8.92058 20.4412C9.65538 19.4167 8.77362 18.3922 8.77362 18.3922L9.06754 18.0995C10.4783 19.5045 11.7128 18.6849 12.1537 18.0995C12.8885 17.075 12.1537 16.0505 12.1537 16.0505C11.8598 15.465 11.272 15.465 12.0067 14.7333L12.8885 13.8551C13.5939 14.4405 15.0439 14.5869 15.6807 14.5869Z"
+								/>
+								<path
+									d="M17.8853 8.29353C17.8853 9.50601 16.8984 10.4889 15.681 10.4889C14.4635 10.4889 13.4766 9.50601 13.4766 8.29353C13.4766 7.08105 14.4635 6.09814 15.681 6.09814C16.8984 6.09814 17.8853 7.08105 17.8853 8.29353Z"
+								/>
+							</svg>
+							<h4>Radical Ownership</h4>
+							<p class="card-text">
+								Character isn't taught; it's practiced. I
+								encourage students to own their choices and to
+								see their mistakes as the primary engine for
+								growth.
+							</p>
+						</div>
+						<div class="card">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path d="M10 19.5H14M10.6667 22H13.3333" />
+								<path
+									d="M7.41058 13.6805L8.51463 14.7196C8.82437 15.0112 9 15.4177 9 15.843C9 16.482 9.518 17 10.157 17H13.843C14.482 17 15 16.482 15 15.843C15 15.4177 15.1756 15.0112 15.4854 14.7196L16.5894 13.6805C18.1306 12.2187 18.9912 10.2984 18.9999 8.30193L19 8.21807C19 4.8069 15.866 2 12 2C8.13401 2 5 4.8069 5 8.21807L5.00007 8.30193C5.00875 10.2984 5.86939 12.2187 7.41058 13.6805Z"
+								/>
+							</svg>
+							<h4>Active Curiosity</h4>
+							<p class="card-text">
+								By trading rote memorisation for 'aha!' moments,
+								I turn high-pressure problems into puzzles the
+								students can solve.
+							</p>
+						</div>
+						<div class="card">
+							<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<circle cx="12" cy="6" r="4" />
+								<path
+									d="M18 9C19.6569 9 21 7.88071 21 6.5C21 5.11929 19.6569 4 18 4"
+								/>
+								<path
+									d="M6 9C4.34315 9 3 7.88071 3 6.5C3 5.11929 4.34315 4 6 4"
+								/>
+								<ellipse cx="12" cy="17" rx="6" ry="4" />
+								<path
+									d="M20 19C21.7542 18.6153 23 17.6411 23 16.5C23 15.3589 21.7542 14.3847 20 14"
+								/>
+								<path
+									d="M4 19C2.24575 18.6153 1 17.6411 1 16.5C1 15.3589 2.24575 14.3847 4 14"
+								/>
+							</svg>
+							<h4>Relational Mentorship</h4>
+							<p class="card-text">
+								Trust is built through shared experiences
+								outside the classroom, allowing me to mentor the
+								person, not just the student.
+							</p>
+						</div>
+						<div class="card">
+							<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M16 11L17.6965 12.5268C19.239 13.9151 20.0103 14.6093 20.0103 15.5C20.0103 16.3907 19.239 17.0849 17.6965 18.4732L16 20"
+								/>
+								<path d="M13.9868 5L11.9934 12.5L10 20" />
+								<path
+									d="M8.00005 4.82959L6.30358 6.35641C4.76102 7.74471 3.98975 8.43886 3.98975 9.32959C3.98975 10.2203 4.76102 10.9145 6.30358 12.3028L8.00005 13.8296"
+								/>
+							</svg>
+							<h4>Purposeful Tech</h4>
+							<p class="card-text">
+								Innovation should humanise education. I use
+								digital tools to remove admin friction, leaving
+								more room for connection.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- <section
+					class="container alternating"
+					style="margin-bottom: var(--space-12)"
+				>
+					<h2 style="text-align: center">Philosophy in Practice</h2>
+					<div class="box-container">
+						<div>
+							<h3>Discipline as Discipleship</h3>
+							<p>
+								Discipline is not about retribution; it is about
+								restoration. When a student makes an error in
+								judgment, the immediate reaction dictates the
+								future of that relationship.
+							</p>
+							<p>
+								By asking open-ended questions about their
+								thought process rather than leading with a
+								reprimand, the focus shifts from the penalty to
+								personal growth.
+							</p>
+							<p>
+								Clear boundaries provide the safety young people
+								need, but guiding them through the natural
+								consequences of crossing those boundaries is
+								where true, lasting character is forged.
+							</p>
+						</div>
+						<div>
+							<img
+								src="assets/images/placeholder-image.png"
+								alt=""
+							/>
+						</div>
+					</div>
+					<div class="box-container">
+						<div>
+							<h3>From Memorisation to Mastery</h3>
+							<p>
+								Mathematics often carries a heavy burden of
+								anxiety for students. To dismantle this, the
+								classroom must shift from rote procedural
+								drilling to active metacognition.
+							</p>
+							<p>
+								It is about diagnosing the exact point of
+								misunderstanding rather than simply marking an
+								answer wrong.
+							</p>
+							<p>
+								By fostering an environment where struggling
+								with a complex equation is celebrated as a
+								necessary step in the learning process, students
+								move from being passive receivers of formulas to
+								confident, active problem-solvers.
+							</p>
+						</div>
+						<div>
+							<img
+								src="assets/images/placeholder-image.png"
+								alt=""
+							/>
+						</div>
+					</div>
+					<div class="box-container">
+						<div>
+							<h3>Mentorship Beyond the Margins</h3>
+							<p>
+								The true measure of a student is rarely found
+								solely on a transcript. Sweating through a
+								demanding sports practice or collaborating
+								behind the scenes of a production reveals
+								character in ways a classroom environment
+								cannot.
+							</p>
+							<p>
+								Engaging in these shared spaces breaks down the
+								traditional teacher-student barrier.
+							</p>
+							<p>
+								When a young person knows you are genuinely
+								invested in their passions outside of academic
+								metrics, they become vastly more receptive to
+								your guidance in their personal and educational
+								lives.
+							</p>
+						</div>
+						<div>
+							<img
+								src="assets/images/placeholder-image.png"
+								alt=""
+							/>
+						</div>
+					</div>
+					<div class="box-container">
+						<div>
+							<h3>Automating Admin, Humanising Education</h3>
+							<p>
+								Technology should act as a bridge, not a
+								barrier. The ultimate goal of integrating
+								digital tools is to eliminate the friction that
+								keeps educators away from their core purpose:
+								the students.
+							</p>
+							<p>
+								Whether it is building dynamic visual models to
+								clarify abstract concepts or writing custom
+								scripts to automate heavy administrative
+								compliance, innovation must always serve a
+								singular mission.
+							</p>
+							<p>
+								Good technology handles the heavy lifting of
+								data, maximizing the time, energy, and
+								relational warmth available for direct student
+								mentorship.
+							</p>
+						</div>
+						<div>
+							<img
+								src="assets/images/placeholder-image.png"
+								alt=""
+							/>
+						</div>
+					</div>
+				</section> -->
+			</div>
+
+			<!-- ==================== EXPERIENCE PAGE ==================== -->
+			<div id="experience" class="page-section">
+				<header
+					class="page-header container"
+					style="margin-bottom: var(--space-12)"
+				>
+					<h1>Professional Journey</h1>
+					<p>
+						I've spent the last ten years focusing on the person
+						behind the desk - pushing for excellence in Maths while
+						building character in the boarding house.
+					</p>
+					<div style="margin-top: var(--space-6)">
+						<a href="#" class="btn btn-outline">Download Full CV</a>
+					</div>
+				</header>
+
+				<section
+					class="container"
+					style="margin-bottom: var(--space-12)"
+				>
+					<div class="timeline">
+						<div class="timeline-item right">
+							<div class="timeline-content">
+								<span class="timeline-date"
+									>Sept 2019 - Present</span
+								>
+								<h3>Boarding Housemaster</h3>
+								<h4>St John's College</h4>
+								<p class="card-text">
+									Cultivating a "home away from home" focused
+									on leadership, resilience, and community
+									integrity.
+								</p>
+							</div>
+						</div>
+
+						<div class="timeline-item left">
+							<div class="timeline-content">
+								<span class="timeline-date"
+									>Jan 2017 - Present</span
+								>
+								<h3>Mathematics Educator</h3>
+								<h4>St John's College</h4>
+								<p class="card-text">
+									Delivering high-performance IEB curriculum
+									education with a focus on data-driven gap
+									analysis.
+								</p>
+							</div>
+						</div>
+
+						<div class="timeline-item right">
+							<div class="timeline-content">
+								<span class="timeline-date"
+									>Jan 2016 - Dec 2016</span
+								>
+								<h3>Maths, Science & Tech Teacher</h3>
+								<h4>Boitumelong Secondary School</h4>
+								<p class="card-text">
+									A masterclass in resilience and building the
+									trust necessary for learning in challenging
+									contexts.
+								</p>
+							</div>
+						</div>
+
+						<div class="timeline-item left">
+							<div class="timeline-content">
+								<span class="timeline-date">Education</span>
+								<h3>Bachelor of Education</h3>
+								<h4>University of Johannesburg</h4>
+								<p
+									class="card-text"
+									style="
+										font-weight: 600;
+										color: var(--accent-main);
+									"
+								>
+									Graduated 2015
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section
+					class="container"
+					style="margin-bottom: var(--space-12)"
+				>
+					<h2 style="text-align: center">Certifications</h2>
+					<div
+						class="card-grid"
+						style="
+							place-items: center;
+							max-width: 600px;
+							margin: auto;
+						"
+					>
+						<div
+							class="card"
+							style="
+								display: grid;
+								place-items: center;
+								max-width: 18rem;
+							"
+						>
+							<img
+								src="assets/images/google_level_2.png"
+								alt="Google Level 2 logo"
+							/>
+						</div>
+						<div
+							class="card"
+							style="
+								display: grid;
+								place-items: center;
+								max-width: 18rem;
+							"
+						>
+							<img
+								src="assets/images/boksmart.png"
+								alt="BokSmart logo"
+							/>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<!-- ==================== RESOURCES PAGE ==================== -->
+			<div id="resources" class="page-section">
+				<header
+					class="page-header container"
+					style="margin-bottom: var(--space-12)"
+				>
+					<h1>Tools for Teachers</h1>
+					<p>
+						Admin is the tax we pay for being teachers. I build
+						these tools to automate the boring stuff.
+					</p>
+				</header>
+
+				<section
+					class="container"
+					style="padding-bottom: var(--space-12)"
+				>
+					<h2 style="text-align: center">Custom tools</h2>
+					<div class="grid-2">
+						<div class="card">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M4 8C4 5.17157 4 3.75736 4.87868 2.87868C5.75736 2 7.17157 2 10 2H14C16.8284 2 18.2426 2 19.1213 2.87868C20 3.75736 20 5.17157 20 8V16C20 18.8284 20 20.2426 19.1213 21.1213C18.2426 22 16.8284 22 14 22H10C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V8Z"
+								/>
+								<path
+									d="M19.8978 16H7.89778C6.96781 16 6.50282 16 6.12132 16.1022C5.08604 16.3796 4.2774 17.1883 4 18.2235"
+								/>
+								<path d="M8 7H16" />
+								<path d="M8 10.5H13" />
+								<path d="M19.5 19H8" />
+							</svg>
+							<h3>IEB SBA Markbook</h3>
+							<div class="pill-container">
+								<span class="pill">Maths</span>
+								<span class="pill">Admin</span>
+								<span class="pill">Google Sheets</span>
+							</div>
+							<p class="card-text">
+								Instantly generates compliant Appendix A and B
+								documents for your entire class. Focus on
+								teaching, not data entry.
+							</p>
+							<div
+								style="
+									margin-top: var(--space-5);
+									display: flex;
+									gap: 1rem;
+									flex-wrap: wrap;
+								"
+							>
+								<a
+									href="https://docs.google.com/spreadsheets/d/1PJ2xZyg-qolDPa9clDO8HZ2flsF31ZJTlkfNxMwsZLY/copy"
+									class="btn btn-primary"
+									style="
+										padding: 0.6rem 1.2rem;
+										font-size: 0.9rem;
+									"
+									title="Save your own copy in your Google Drive"
+									target="_blank"
+									>Get your own copy</a
+								>
+								<a
+									href="#"
+									class="btn btn-outline"
+									style="
+										padding: 0.6rem 1.2rem;
+										font-size: 0.9rem;
+									"
+									>Watch Tutorial</a
+								>
+							</div>
+						</div>
+
+						<div class="card">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M13.4572 2.10976C10.5738 2.38717 7.50944 3.25185 5.38064 5.38064C3.25185 7.50944 2.38717 10.5738 2.10976 13.4572M13.4572 2.10976C15.1273 1.94909 16.7367 1.98542 18.0686 2.08725C20.1483 2.24627 21.7537 3.85169 21.9127 5.93144C22.0146 7.26327 22.0509 8.87269 21.8902 10.5428M13.4572 2.10976L21.8902 10.5428M21.8902 10.5428C21.6128 13.4262 20.7482 16.4906 18.6194 18.6194C16.4906 20.7482 13.4262 21.6128 10.5428 21.8902M10.5428 21.8902C8.87269 22.0509 7.26327 22.0146 5.93144 21.9127C3.85169 21.7537 2.24627 20.1483 2.08725 18.0686C1.98542 16.7367 1.94909 15.1273 2.10976 13.4572M10.5428 21.8902L2.10976 13.4572"
+								/>
+								<path
+									d="M15.3098 8.69043L8.69043 15.3098M8.69043 12.4729L11.5273 15.3098M10.5817 10.5817L13.4185 13.4185M12.4729 8.69043L15.3098 11.5273"
+								/>
+							</svg>
+							<h3>BokSmart Sheet Generator</h3>
+							<div class="pill-container">
+								<span class="pill">Rugby</span>
+								<span class="pill">Admin</span>
+								<span class="pill">Google Sheets</span>
+							</div>
+							<p class="card-text">
+								Game day should be about the athletes. This tool
+								pulls from your database to generate compliant
+								team lists in seconds.
+							</p>
+							<div
+								style="
+									margin-top: var(--space-5);
+									display: flex;
+									gap: 1rem;
+									flex-wrap: wrap;
+								"
+							>
+								<a
+									href="https://docs.google.com/spreadsheets/d/1IX1fET_maHkfBqmjlrr-lFV4F6ORX2w2Ec2zC1ot24w/copy"
+									class="btn btn-primary"
+									style="
+										padding: 0.6rem 1.2rem;
+										font-size: 0.9rem;
+									"
+									title="Save your own copy in your Google Drive"
+									target="_blank"
+									>Get your own copy</a
+								>
+								<a
+									href="#"
+									class="btn btn-outline"
+									style="
+										padding: 0.6rem 1.2rem;
+										font-size: 0.9rem;
+									"
+									>Watch Tutorial</a
+								>
+							</div>
+						</div>
+
+						<div class="card">
+							<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z"
+								/>
+								<path d="M7 4V2.5" />
+								<path d="M17 4V2.5" />
+								<path d="M2.5 9H21.5" />
+							</svg>
+							<h3>Batch Calendar Events</h3>
+							<div class="pill-container">
+								<span class="pill">Calendar</span>
+								<span class="pill">Admin</span>
+								<span class="pill">Google Sheets</span>
+							</div>
+							<p class="card-text">
+								Never miss a milestone. This tool syncs
+								birthdays and key dates directly to your Google
+								Calendar.
+							</p>
+							<div
+								style="
+									margin-top: var(--space-5);
+									display: flex;
+									gap: 1rem;
+									flex-wrap: wrap;
+								"
+							>
+								<a
+									href="https://docs.google.com/spreadsheets/d/16j0aupaxBsbUpfMyrL4xyI6GER9nnFrd7TBtBTri2hE/copy"
+									class="btn btn-primary"
+									style="
+										padding: 0.6rem 1.2rem;
+										font-size: 0.9rem;
+									"
+									title="Save your own copy in your Google Drive"
+									target="_blank"
+									>Get your own copy</a
+								>
+								<a
+									href="#"
+									class="btn btn-outline"
+									style="
+										padding: 0.6rem 1.2rem;
+										font-size: 0.9rem;
+									"
+									>Watch Tutorial</a
+								>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<!-- FOOTER -->
+		<footer>
+			<div class="container">
+				<div class="footer-grid">
+					<div>
+						<h4
+							style="
+								font-family: &quot;Lora&quot;, serif;
+								font-size: 1.5rem;
+							"
+						>
+							Vusi Mathonsi
+						</h4>
+						<p style="margin-bottom: 0.5rem">
+							Maths Teacher | Housemaster | Mentor
+						</p>
+						<small
+							style="
+								color: var(--accent-main);
+								font-style: italic;
+							"
+							>Building Excellence. Rooted in Character.</small
+						>
+					</div>
+					<div>
+						<h4>Explore</h4>
+						<ul style="list-style: none">
+							<li style="margin-bottom: 0.5rem">
+								<a href="#" onclick="navigateTo('home')"
+									>Home</a
+								>
+							</li>
+							<li style="margin-bottom: 0.5rem">
+								<a href="#" onclick="navigateTo('philosophy')"
+									>Philosophy</a
+								>
+							</li>
+							<li style="margin-bottom: 0.5rem">
+								<a href="#" onclick="navigateTo('experience')"
+									>Experience</a
+								>
+							</li>
+							<li style="margin-bottom: 0.5rem">
+								<a href="#" onclick="navigateTo('resources')"
+									>Resources</a
+								>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Connect</h4>
+						<p style="margin-bottom: 1rem">
+							<a href="mailto:hello@vusimathonsi.co.za"
+								>hello@vusimathonsi.co.za</a
+							>
+						</p>
+						<a
+							href="#"
+							class="btn btn-primary"
+							style="padding: 0.5rem 1rem; font-size: 0.875rem"
+							>Download CV</a
+						>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<small id="copy">
+						&copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						Vusi Mathonsi. All Rights Reserved.
+					</small>
+				</div>
+			</div>
+		</footer>
+
+		<!-- JAVASCRIPT LOGIC -->
+		<script>
+			// --- 1. Navigation / SPA Logic ---
+			const pages = document.querySelectorAll(".page-section");
+			const navLinks = document.querySelectorAll(
+				".nav-link[data-target]",
+			);
+			const hamburger = document.getElementById("hamburger");
+			const navMenu = document.getElementById("navMenu");
+
+			function navigateTo(pageId) {
+				// Hide all pages
+				pages.forEach((p) => p.classList.remove("active"));
+				// Remove active class from links
+				navLinks.forEach((l) => l.classList.remove("active"));
+
+				// Show target page
+				const targetPage = document.getElementById(pageId);
+				if (targetPage) {
+					// Configure page title based on target page
+					const h1Element = targetPage.querySelector("h1");
+					const titleElement = document.querySelector("title");
+					if (pageId === "home") {
+						titleElement.textContent =
+							"Vusi Mathonsi | Educator & Mentor";
+					} else {
+						titleElement.textContent = `Vusi Mathonsi | ${h1Element.textContent}`;
+					}
+
+					targetPage.classList.add("active");
+					// Highlight corresponding nav links
+					document
+						.querySelectorAll(`.nav-link[data-target="${pageId}"]`)
+						.forEach((l) => l.classList.add("active"));
+
+					// Scroll to top
+					window.scrollTo({ top: 0, behavior: "smooth" });
+
+					// Close mobile menu if open
+					hamburger.classList.remove("active");
+					navMenu.classList.remove("active");
+
+					// Re-trigger timeline logic if navigating to experience page
+					if (pageId === "experience") {
+						setTimeout(updateActiveTimelineItem, 100);
+					}
+				}
+			}
+
+			// Attach click events to nav links
+			navLinks.forEach((link) => {
+				link.addEventListener("click", (e) => {
+					e.preventDefault();
+					const target = link.getAttribute("data-target");
+					navigateTo(target);
+				});
+			});
+
+			// Mobile Menu Toggle
+			hamburger.addEventListener("click", () => {
+				hamburger.classList.toggle("active");
+				navMenu.classList.toggle("active");
+			});
+
+			// Initialize first page (Home)
+			navigateTo("home");
+
+			// --- 2. Timeline Scroll Logic ---
+			const timelineItems = document.querySelectorAll(".timeline-item");
+
+			function updateActiveTimelineItem() {
+				// Only run if experience page is visible to save resources
+				if (
+					!document
+						.getElementById("experience")
+						.classList.contains("active")
+				)
+					return;
+
+				const viewportCenter = window.innerHeight / 2;
+				let closestItem = null;
+				let minDistance = Infinity;
+
+				timelineItems.forEach((item) => {
+					const rect = item.getBoundingClientRect();
+					const dotCenterTarget = rect.top + 36; // Adjust based on new padding
+					const distance = Math.abs(viewportCenter - dotCenterTarget);
+
+					if (distance < minDistance) {
+						minDistance = distance;
+						closestItem = item;
+					}
+				});
+
+				timelineItems.forEach((item) =>
+					item.classList.remove("active"),
+				);
+
+				if (closestItem) {
+					closestItem.classList.add("active");
+				}
+			}
+
+			window.addEventListener("scroll", updateActiveTimelineItem);
+			window.addEventListener("resize", updateActiveTimelineItem);
+		</script>
+	</body>
+</html>
