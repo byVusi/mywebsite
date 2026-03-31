@@ -2,7 +2,7 @@
 
 A modern, responsive personal website for an educator and mentor, built as a **single-page application (SPA)** using **HTML, CSS, and vanilla JavaScript**.
 
-This site showcases professional experience, teaching philosophy, and custom-built tools for educators — all within a clean, elegant, and performance-focused design.
+This site showcases professional experience, teaching philosophy, and custom-built tools for educators - all within a clean, elegant, and performance-focused design.
 
 ---
 
@@ -11,7 +11,7 @@ This site showcases professional experience, teaching philosophy, and custom-bui
 - **Single Page Application (SPA)**
     - Smooth navigation between sections without page reloads
     - Dynamic page title updates
-    - Scroll-to-top behavior on navigation
+    - Scroll-to-top behaviour on navigation
 
 - **Responsive Design**
     - Mobile-first approach
@@ -61,7 +61,7 @@ git clone https://github.com/byVusi/mywebsite.git
 
 ### 2. Open the project
 
-Simply open `index.html` in your browser:
+Open `index.html` in your browser:
 
 ```bash
 cd your-repo-name
@@ -101,7 +101,7 @@ The project uses <strong>CSS variables (design tokens)</strong> for consistency:
 
 <strong>Includes:</strong>
 
-- Color system (primary + accent)
+- Colour system (primary + accent)
 - Spacing scale (4-point system)
 - Typography hierarchy
 - Layout widths
@@ -172,7 +172,7 @@ Add a corresponding nav link:
 <a class="nav-link" data-target="new-section">New Section</a>
 ```
 
-Ensure the id matches:
+Ensure the `id` matches:
 
 ```html
 <div id="new-section" class="page-section"></div>
@@ -180,9 +180,9 @@ Ensure the id matches:
 
 ## 📱 Responsive Breakpoints
 
-- <strong>Mobile:</strong> < 768px
-- <strong>Tablet/Desktop:</strong> ≥ 768px
-- <strong>Wide layouts:</strong> ≥ 980px
+- Mobile: < 768px
+- Tablet/Desktop: ≥ 768px
+- Wide layouts: ≥ 980px
 
 ## 📌 Future Improvements
 
